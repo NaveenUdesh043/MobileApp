@@ -114,7 +114,7 @@ class WeatherForeCast : AppCompatActivity() {
                         txtLocation.text = forecastCityName
                         getForecastWeatherData(location.latitude, location.longitude)
                     } else {
-                        txtLocation.text = "Location Unknown"
+                        txtLocation.text = "Unknown Location"
                     }
                 }
                 .addOnFailureListener { e ->
