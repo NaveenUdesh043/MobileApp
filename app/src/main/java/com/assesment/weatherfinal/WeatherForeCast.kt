@@ -114,7 +114,7 @@ class WeatherForeCast : AppCompatActivity() {
                         txtLocation.text = forecastCityName
                         getForecastWeatherData(location.latitude, location.longitude)
                     } else {
-                        txtLocation.text = "Unknown Location"
+                        txtLocation.text = "Location Unknown"
                     }
                 }
                 .addOnFailureListener { e ->
@@ -203,8 +203,8 @@ class WeatherForeCast : AppCompatActivity() {
 
         for (i in 1 until 5) {
             val forecastItem = forecastList.getJSONObject(i * 8)
-            val main = forecastItem.getJSONObject("main")
-            val temperature = main.getDouble("temp")
+            val main = (forecastItem.getJSONObject("main"))
+            val temperature = String.format("%.2f",main.getDouble("temp")-272.15).toDouble()
             val weatherArray = forecastItem.getJSONArray("weather")
             val weather = weatherArray.getJSONObject(0).getString("description").toUpperCase(Locale.getDefault())
             val icon = weatherArray.getJSONObject(0).getString("icon")
@@ -216,22 +216,22 @@ class WeatherForeCast : AppCompatActivity() {
 
             when (i) {
                 1 -> {
-                    txtDate1.text = "$date: ${temperature/10}°C"
+                    txtDate1.text = "$date: \n${temperature}°C"
                     textDescription1.text = weather
                     loadWeatherIcon(icon, imageView1)
                 }
                 2 -> {
-                    txtDate2.text = "$date: ${temperature/10}°C"
+                    txtDate2.text = "$date: \n${temperature}°C"
                     textDescription2.text = weather
                     loadWeatherIcon(icon, imageView2)
                 }
                 3 -> {
-                    txtDate3.text = "$date: ${temperature/10}°C"
+                    txtDate3.text = "$date: \n${temperature}°C"
                     textDescription3.text = weather
                     loadWeatherIcon(icon, imageView3)
                 }
                 4 -> {
-                    txtDate4.text = "$date: ${temperature/10}°C"
+                    txtDate4.text = "$date: \n${temperature}°C"
                     textDescription4.text = weather
                     loadWeatherIcon(icon, imageView4)
                 }
@@ -249,7 +249,7 @@ class WeatherForeCast : AppCompatActivity() {
             for (i in 0 until 3) {
                 val forecastItem = forecastList.getJSONObject(i * 8)
                 val main = forecastItem.getJSONObject("main")
-                val temperature = main.getDouble("temp")
+                val temperature = String.format("%.2f",main.getDouble("temp")-272.15).toDouble()
                 val weatherArray = forecastItem.getJSONArray("weather")
                 val weather = weatherArray.getJSONObject(0).getString("description").toUpperCase(
                     Locale.getDefault())
@@ -262,17 +262,17 @@ class WeatherForeCast : AppCompatActivity() {
 
                 when (i) {
                     0 -> {
-                        txtDate1.text = "$date: ${temperature/10}°C"
+                        txtDate1.text = "$date: \n${temperature}°C"
                         textDescription1.text = weather
                         loadWeatherIcon(icon, imageView1)
                     }
                     1 -> {
-                        txtDate2.text = "$date: ${temperature/10}°C"
+                        txtDate2.text = "$date: \n${temperature}°C"
                         textDescription2.text = weather
                         loadWeatherIcon(icon, imageView2)
                     }
                     2 -> {
-                        txtDate3.text = "$date: ${temperature/10}°C"
+                        txtDate3.text = "$date: \n${temperature}°C"
                         textDescription3.text = weather
                         loadWeatherIcon(icon, imageView3)
                     }
