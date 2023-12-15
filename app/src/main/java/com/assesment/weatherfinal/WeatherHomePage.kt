@@ -145,7 +145,7 @@ class WeatherHomePage : AppCompatActivity() {
             { data ->
                 try {
                     val cityName = data.getString("name")
-                    val temperature =String.format( "%.2f",data.getJSONObject("main").getDouble("temp") - 272.15).toDouble()
+                    val temperature =String.format( "%.2f",data.getJSONObject("main").getDouble("temp") - 273.15).toDouble()
                     val pressure = data.getJSONObject("main").getDouble("pressure")
                     val humidity = data.getJSONObject("main").getDouble("humidity")
                     val windSpeed = data.getJSONObject("wind").getDouble("speed")
@@ -198,7 +198,7 @@ class WeatherHomePage : AppCompatActivity() {
             { data ->
 
                 try {
-                    val temperature =String.format( "%.2f",data.getJSONObject("main").getDouble("temp") - 272.15).toDouble()
+                    val temperature =String.format( "%.2f",data.getJSONObject("main").getDouble("temp") - 273.15).toDouble()
                     val pressure = data.getJSONObject("main").getDouble("pressure")
                     val humidity = data.getJSONObject("main").getDouble("humidity")
                     val windSpeed = data.getJSONObject("wind").getDouble("speed")

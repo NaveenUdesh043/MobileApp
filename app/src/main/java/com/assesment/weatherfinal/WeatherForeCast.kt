@@ -204,7 +204,7 @@ class WeatherForeCast : AppCompatActivity() {
         for (i in 1 until 5) {
             val forecastItem = forecastList.getJSONObject(i * 8)
             val main = (forecastItem.getJSONObject("main"))
-            val temperature = String.format("%.2f",main.getDouble("temp")-272.15).toDouble()
+            val temperature = String.format("%.2f",main.getDouble("temp")-273.15).toDouble()
             val weatherArray = forecastItem.getJSONArray("weather")
             val weather = weatherArray.getJSONObject(0).getString("description").toUpperCase(Locale.getDefault())
             val icon = weatherArray.getJSONObject(0).getString("icon")
@@ -249,7 +249,7 @@ class WeatherForeCast : AppCompatActivity() {
             for (i in 0 until 3) {
                 val forecastItem = forecastList.getJSONObject(i * 8)
                 val main = forecastItem.getJSONObject("main")
-                val temperature = String.format("%.2f",main.getDouble("temp")-272.15).toDouble()
+                val temperature = String.format("%.2f",main.getDouble("temp")-273.15).toDouble()
                 val weatherArray = forecastItem.getJSONArray("weather")
                 val weather = weatherArray.getJSONObject(0).getString("description").toUpperCase(
                     Locale.getDefault())
